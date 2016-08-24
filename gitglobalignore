@@ -1,0 +1,54 @@
+# User-specific files #
+##################
+.gitconfig.local
+.localrc
+gitconfig.local
+localrc
+
+# Custom #
+##########
+.*.swp
+__pycache__
+*.pyc
+*~
+*.orig
+tags
+TAGS
+*id_rsa*
+
+# Compiled source #
+###################
+*.com
+!host_vars/*.com
+*.class
+*.dll
+*.exe
+*.[oa]
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

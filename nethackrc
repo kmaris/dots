@@ -1,0 +1,44 @@
+NAME=kmgogo
+
+#OPTIONS=gender:male, role:ranger, race:elf, align:chaotic
+OPTIONS=role:Valkyrie, race:dwarf, align:lawful
+OPTIONS=pettype:dog
+
+OPTIONS=color, menucolors, statuscolors
+OPTIONS=font_size_map:16, font_size_text:14, font_size_menu:14, font_size_status:16, font_size_message:14
+
+OPTIONS=autodig, fullscreen, pushweapon, suppress_alert:3.3.1
+OPTIONS=boulder:0, fruit:avocado
+
+OPTIONS=autopickup
+OPTIONS=pickup_type:$
+
+OPTIONS=paranoid_hit,paranoid_quit,paranoid_remove
+
+MENUCOLOR="blessed"=cyan&bold
+MENUCOLOR="cursed"=orange&bold
+MENUCOLOR="uncursed"=green
+
+MENUCOLOR="loadstone\|wand \(of\|called\) cancellation"=underline
+MENUCOLOR="Amulet of Yendor named"=magenta     # color only the real Amulet
+MENUCOLOR="gold piece"=yellow
+
+MENUCOLOR="[a-zA-Z] - [a-zA-Z ]+[ ]+[0-9]+\*[ ]+[a-z]+[ ]+[0-9]+%"=magenta  # forgotten spell
+
+# HP
+STATUSCOLOR=hp%100=green,hp%66=yellow,hp%50=orange
+STATUSCOLOR=hp%33=red,hp%15:red&inverse,hp%0:red&inverse&blink
+# PW
+STATUSCOLOR=pw%100=green,pw%66=yellow,pw%50:orange,pw%33=red
+# Carry
+STATUSCOLOR=burdened:yellow,stressed:orange,strained:red
+STATUSCOLOR=overtaxed:red&inverse,overloaded:red&inverse&blink
+# Hunger
+STATUSCOLOR=satiated:yellow,hungry:orange,weak:red
+STATUSCOLOR=fainting:red&inverse,fainted:red&inverse&blink
+# Mental
+STATUSCOLOR=hallu:yellow,conf:orange,stun:red
+# Health
+STATUSCOLOR=ill:red&inverse,foodpois:red&inverse,slime:red&inverse
+# Other
+STATUSCOLOR=held:red&inverse,blind:red&inverse 

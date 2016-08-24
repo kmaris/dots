@@ -1,0 +1,4 @@
+URxvt.scrollBar: false
+URxvt.font: -*-inconsolata-bold-r-*-*-12-*-*-*-*-*-*-*
+URxvt.background: #000000
+URxvt.foreground: #FFFFFF

@@ -1,0 +1,84 @@
+# vim: set ft=sh:
+
+stty -ixon # Pain in the ass flow control for terminal emulators.
+
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+      man "$@"
+}
+
+slay() {
+  [ "$#" -gt "0" ] && echo "$*" >> $HOME/slays
+}
+
+_wh() {
+  which "$@" | awk '{print $1;}'
+}
+
+_hs() {
+  hash "$@" >&2 2>/dev/null
+}
+
+
+alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias ..='cd ..'
+alias ls='ls -hG'
+alias l='ls'
+alias ll='ls -l'
+alias lz='ls -lZ'
+alias la='ls -lA'
+alias tmux='tmux -2u'
+alias tree='tree -C'
+alias ping='ping -c 5'
+alias df='df -h'
+alias du='du -c -h'
+alias vi='vim'
+alias irc='irssi'
+alias ln='ln -i'
+
+export GOPATH="$HOME/src/go"
+export EDITOR="$(_wh vim)"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/local/lib"
+export WORKON_HOME=$HOME/.virtualenvs
+
+export PATH="$PATH:$HOME/local/opt/android-sdk-linux/tools"
+export PATH="$PATH:$HOME/local/opt/android-sdk-linux/platform-tools"
+export PATH="$PATH:$GOPATH/bin"
+
+[ $(_hs virtualenvwrapper.sh) ] && . $(_wh $_)
+
+if [ $(_hs src-hilite-lesspipe.sh) ] ; then
+  export LESSOPEN="| $(_wh $_) %s"
+  export LESS=' -R '
+fi
+
+if [ $(_hs mvn) ] ; then
+  export M3_HOME=/opt/apache-maven
+  export M2_HOME=$M3_HOME
+  export M3=$M3_HOME/bin
+  export M2=$M3
+fi
+
+if [ $(_hs brew) ] ; then
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+  export GOROOT="/usr/local/opt/go"
+else
+  export GOROOT="/usr/lib/golang"
+fi
+
+if [ -x "/usr/libexec/java_home" ] ; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
+else
+  export JAVA_HOME="/usr/lib/jvm/java"
+fi
+
+unset SSH_ASKPASS
