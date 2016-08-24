@@ -1,0 +1,3 @@
+#!/bin/bash -eux
+
+echo 'TODO: Make irssi/scripts/autorun and symlinks if not present.'
