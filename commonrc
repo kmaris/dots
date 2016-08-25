@@ -22,8 +22,8 @@ _wh() {
   which "$@" | awk '{print $1;}'
 }
 
-_hs() {
-  hash "$@" >&2 2>/dev/null
+_ws() {
+  type "$@" 2>&1 >/dev/null
 }
 
 
@@ -54,22 +54,22 @@ export PATH="$PATH:$HOME/local/opt/android-sdk-linux/tools"
 export PATH="$PATH:$HOME/local/opt/android-sdk-linux/platform-tools"
 export PATH="$PATH:$GOPATH/bin"
 
-[ $(_hs virtualenvwrapper.sh) ] && . $(_wh $_)
+_ws virtualenvwrapper.sh && . $(_wh $_)
 
-if [ $(_hs src-hilite-lesspipe.sh) ] ; then
+if _ws src-hilite-lesspipe.sh ; then
   export LESSOPEN="| $(_wh $_) %s"
   export LESS=' -R '
 fi
 
-if [ $(_hs mvn) ] ; then
+if _ws mvn ; then
   export M3_HOME=/opt/apache-maven
   export M2_HOME=$M3_HOME
   export M3=$M3_HOME/bin
   export M2=$M3
 fi
 
-if [ $(_hs brew) ] ; then
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+if _ws brew ; then
+  [[ -e $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
   export GOROOT="/usr/local/opt/go"
 else
   export GOROOT="/usr/lib/golang"
