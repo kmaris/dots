@@ -8,10 +8,9 @@ SHELL = /bin/bash
 
 DOTS = $(addprefix $(HOME)/., $(filter-out Makefile %.init, $(wildcard *)))
 
-.PHONY: all
+.PHONY: all init
 all: $(DOTS)
 
-.PHONY: init
 init:
 	@for init_file in $$(ls *.init) ; do \
 	  echo "=== $$init_file ===" ; \
