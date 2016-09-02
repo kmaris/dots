@@ -69,8 +69,10 @@ if _ws mvn ; then
 fi
 
 if _ws brew ; then
-  [[ -e $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-  export GOROOT="/usr/local/opt/go"
+  BPFX="$(brew --prefix)"
+  [[ -e ${BPFX}/etc/profile.d/autojump.sh ]] && . ${BPFX}/etc/profile.d/autojump.sh
+  export GOROOT="${BPFX}/opt/go"
+  export GROOVY_HOME="${BPFX}/opt/groovy/libexec"
 else
   export GOROOT="/usr/lib/golang"
 fi

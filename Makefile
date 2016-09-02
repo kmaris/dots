@@ -6,7 +6,7 @@
 ################
 SHELL = /bin/bash
 
-DOTS = $(addprefix $(HOME)/., $(filter-out Makefile %.init, $(wildcard *)))
+DOTS = $(addprefix $(HOME)/., $(wildcard *.dots))
 
 .PHONY: all init
 all: $(DOTS)
