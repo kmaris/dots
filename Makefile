@@ -4,9 +4,10 @@
 # as $HOME/.<filename> sans the .dot extension.
 #
 ################
-SHELL = /bin/bash
+SHELL := /bin/bash
 
-DOTS = $(addprefix $(HOME)/., $(wildcard *.dots))
+FIND_EXCLUDES := \! \( -name Makefile -or -name README.md -or -name .\* -or -name \*.init \)
+DOTS := $(addprefix $(HOME)/., $(notdir $(shell find . -mindepth 1 -maxdepth 1 $(FIND_EXCLUDES))))
 
 .PHONY: all init
 all: $(DOTS)
