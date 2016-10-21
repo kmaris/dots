@@ -44,6 +44,7 @@ alias du='du -c -h'
 alias vi='vim'
 alias irc='irssi'
 alias ln='ln -i'
+alias adoc='ansible-doc'
 
 export GOPATH="$HOME/src/go"
 export EDITOR="$(_wh vim)"
