@@ -1,4 +1,5 @@
-localrc
-gitconfig.local
 irssi/logs
 irssi/scripts/autorun
+
+vagrant.d/*
+!vagrant.d/Vagrantfile
