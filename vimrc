@@ -81,8 +81,8 @@ autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 ex
 autocmd FileType yaml,yml setlocal nosmartindent noautoindent
 
 " Open NERDTree on startup if no files specified
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let NERDTreeIgnore=['__pycache__[[dir]]','\.pyc$[[file]]','\.class$[[file]]','\.[oa]$[[file]]','\.orig$']
 let g:vim_markdown_folding_disabled=1
