@@ -1,7 +1,6 @@
 ################
 #
-# Makefile to install dotfiles. Files ending in .dot will be copied to $HOME
-# as $HOME/.<filename> sans the .dot extension.
+# Makefile to install dotfiles and run their init scripts.
 #
 ################
 SHELL := /bin/bash
