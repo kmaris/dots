@@ -13,10 +13,8 @@ DOTS := $(addprefix $(HOME)/., $(notdir $(shell find . -mindepth 1 -maxdepth 1 $
 all: $(DOTS)
 
 init:
-	@for init_file in $$(ls *.init) ; do \
-	  echo "=== $$init_file ===" ; \
-	  sh $$init_file ; \
-	done
+	@for init_file in $$(ls *.init) ; do sh $$init_file ; done
+	@find . -name init.dot -execdir sh {} \;
 
 $(HOME)/.%: %
 	@if [ -f "$@" ] || [ -d "$@" ] ; then \
@@ -26,4 +24,4 @@ $(HOME)/.%: %
 	  rm "$@" ; \
 	fi
 	ln -s $(CURDIR)/$< $@
-	@[ -x "$(*F).init" ] && sh "$(*F).init" || true
+	@[ -x "$<.init" ] && sh "$<.init" || [ -x "$</init.dot" ] && sh "$</init.dot"
