@@ -343,7 +343,7 @@ formats = {
     talking_in = "%b{fq Irssi}%n %bYou are now talking in %W$0";
     not_in_channels = "%b{fq Channels}%n %bYou are not on any channels";
     current_channel = "%b{fq Channels}%n %bCurrent channel $0";
-    pubmsg = "{pubmsgnick $2 {pubnick \00312$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00303$0}}$1";
   };
   "fe-common/irc" = {
     usermode_change = "%w-%c-%C- %nMode change %C{mode $0}%n for user {nick $1}";
