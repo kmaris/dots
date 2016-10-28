@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+if isdirectory("/Library/TeX/texbin")
+  let $PATH=$PATH.":/Library/TeX/texbin"
+endif
+
 source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect('bundles/{}')
 
@@ -58,7 +62,6 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 nnoremap <leader>R :RainbowParenthesesToggle<cr>
-nnoremap <leader>N :NERDTreeToggle<cr>
 nnoremap <leader>B :buffers<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -102,3 +105,8 @@ let g:SexyScroller_DetectPendingKeys = 1
 let g:SexyScroller_EasingStyle = 2
 let g:SexyScroller_CursorTime = 5
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|a|o)$',
+  \ }

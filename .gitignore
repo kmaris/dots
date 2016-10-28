@@ -3,3 +3,11 @@ irssi/scripts/autorun
 
 vagrant.d/*
 !vagrant.d/Vagrantfile
+
+vim/.netrwhist
+vim/autoload
+vim/backup
+vim/bundles/*
+!vim/bundles/urls
+vim/swap
+vim/undo
