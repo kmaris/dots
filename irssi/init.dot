@@ -1,0 +1,4 @@
+#!/bin/bash -eux
+# vim: set ft=sh:
+
+echo 'TODO: Make irssi/scripts/autorun and symlinks if not present.'
