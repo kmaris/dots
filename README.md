@@ -1,14 +1,14 @@
 DOTFILES
 ========
 
-My personal dotfiles. Install them with `make install`.
+Install them with `make`.
 
-\*.init
+inits for dots
 -------
 
-When make runs, it checks for a .init file with the same name as the
-dependency. If that is found it will be executed after linking.
+Make will run `sh <dotfile>.init` if it updates a file. `sh <dotdirectory>/init.dot` will
+be run for directories.
 
-### Crypt
+#### crypt
 
 `irssi/config` is encrypted with git-crypt.
