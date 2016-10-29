@@ -31,7 +31,7 @@ alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-di
 alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias ..='cd ..'
-alias ls='ls -hG'
+alias ls='ls -hG --color=auto'
 alias l='ls'
 alias ll='ls -l'
 alias lz='ls -lZ'
