@@ -2,4 +2,4 @@
 # vim: set ft=sh:
 
 mkdir undo swap backup || true
-. bundles.sh
+./bundles.sh
