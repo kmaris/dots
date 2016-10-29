@@ -16,7 +16,7 @@ init:
 	@find . -name init.dot -execdir sh {} \;
 
 install-hook:
-	echo -e "#!/bin/bash\nmake all"  > .git/hooks/post-merge
+	echo -e "#!/bin/bash\nmake"  > .git/hooks/post-merge
 	chmod +x .git/hooks/post-merge
 
 $(HOME)/.%: %
