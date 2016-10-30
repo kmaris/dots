@@ -1,2 +1,9 @@
 irssi/config filter=git-crypt diff=git-crypt
+irssi/* linguist-vendored
+vagrant.d/* linguist-vendored
+vim/autoload linguist-vendored
+vim/backup linguist-vendored
+vim/bundles linguist-vendored
+vim/swap linguist-vendored
+vim/undo linguist-vendored
 *.pl linguist-language=Perl
