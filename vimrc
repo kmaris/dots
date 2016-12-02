@@ -82,7 +82,8 @@ set expandtab
 autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml,yml setlocal nosmartindent noautoindent
-
+autocmd FileType yaml,yml set ft=ansible
+autocmd BufNewFile,BufRead SCons* set filetype=python
 " Open NERDTree on startup if no files specified
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

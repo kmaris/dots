@@ -1,6 +1,3 @@
-[ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
-[ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -35,3 +32,6 @@ else
     eval PR_USER='%{$fg[green]%}%n@%m'
 fi
 PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
+
+[ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
+[ -e "$HOME/.localrc" ] && source "$HOME/.localrc"

@@ -54,7 +54,7 @@ alias vbm='VBoxManage'
 export GOPATH="$HOME/src/go"
 export EDITOR="$(_wh vim)"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/local/lib"
-export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_HOME="$HOME/.virtualenvs"
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
@@ -64,7 +64,7 @@ export PATH="$PATH:$HOME/local/opt/android-sdk-linux/platform-tools"
 _ws virtualenvwrapper.sh && . $(_wh $_)
 
 if _ws src-hilite-lesspipe.sh ; then
-  export LESSOPEN="| $(_wh $_) %s"
+  export LESSOPEN="| $(_wh src-hilite-lesspipe.sh) %s"
   export LESS=' -R '
 fi
 
