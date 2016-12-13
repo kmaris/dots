@@ -62,6 +62,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 nnoremap <leader>R :RainbowParenthesesToggle<cr>
+nnoremap <leader>N :NERDTreeToggle<cr>
 nnoremap <leader>B :buffers<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -85,8 +86,8 @@ autocmd FileType yaml,yml setlocal nosmartindent noautoindent
 autocmd FileType yaml,yml set ft=ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
 " Open NERDTree on startup if no files specified
-"autocmd vimenter * if !argc() | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let NERDTreeIgnore=['__pycache__[[dir]]','\.pyc$[[file]]','\.class$[[file]]','\.[oa]$[[file]]','\.orig$']
 let g:vim_markdown_folding_disabled=1

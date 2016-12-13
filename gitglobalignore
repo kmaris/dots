@@ -4,6 +4,7 @@
 .localrc
 gitconfig.local
 localrc
+.vagrant
 
 # Custom #
 ##########
