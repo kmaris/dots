@@ -27,3 +27,5 @@
   path = ~/.gitconfig.local
 [stash]
   showPatch = true
+[core]
+  excludesfile = ~/.gitglobalignore
