@@ -72,7 +72,7 @@ nnoremap <C-l> <C-w>l
 " COLORS@@#@!!!!
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme zenburn
 
 " Tabbing defaults
 set tabstop=2
@@ -82,16 +82,17 @@ set expandtab
 " Custom tabbing for filetypes
 autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType yaml,yml setlocal nosmartindent noautoindent
-autocmd FileType yaml,yml set ft=ansible
+autocmd FileType yaml,yml setlocal nosmartindent noautoindent filetype=ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
+autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
+
 " Open NERDTree on startup if no files specified
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let NERDTreeIgnore=['__pycache__[[dir]]','\.pyc$[[file]]','\.class$[[file]]','\.[oa]$[[file]]','\.orig$']
 let g:vim_markdown_folding_disabled=1
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 let g:airline_powerline_fonts=1
 let g:netrw_browse_split=4
 let g:netrw_altv=1
