@@ -81,7 +81,7 @@ if _ws brew ; then
   export GOROOT="${BPFX}/opt/go/libexec"
   export GROOVY_HOME="${BPFX}/opt/groovy/libexec"
 else
-  export GOROOT="/usr/lib/golang"
+  export GOROOT="/usr/lib/go"
 fi
 
 if [ -x "/usr/libexec/java_home" ] ; then
