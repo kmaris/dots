@@ -6,9 +6,6 @@ done
 
 set -o vi
 
-[ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
-[ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
-
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -28,3 +25,7 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 else
   PS1='\u@\h:\w\$ '
 fi
+
+[ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
+[ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
+[ -e "/etc/profile.d/autojump.bash" ] && source "/etc/profile.d/autojump.bash"
