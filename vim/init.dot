@@ -1,5 +1,5 @@
 #!/bin/bash
 # vim: set ft=sh:
 
-mkdir undo swap backup || true
+mkdir undo swap backup 1>&2 2>/dev/null || true
 ./bundles.sh

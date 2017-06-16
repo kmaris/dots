@@ -28,6 +28,7 @@ set laststatus=2
 set number
 set relativenumber
 set nofoldenable
+set nojoinspaces
 set ignorecase
 set smartcase
 set gdefault
@@ -85,7 +86,7 @@ autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 
 autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml,yml setlocal nosmartindent noautoindent filetype=ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
-autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
+autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
 
 " Open NERDTree on startup if no files specified
 "autocmd vimenter * if !argc() | NERDTree | endif
@@ -97,6 +98,7 @@ let g:vim_markdown_folding_disabled=1
 let g:airline_powerline_fonts=1
 let g:netrw_browse_split=4
 let g:netrw_altv=1
+"let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_winsize=28
 let g:go_fmt_command = "goimports"
