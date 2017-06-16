@@ -46,6 +46,7 @@ set backup
 set backupdir=$HOME/.vim/backup,/tmp/backups,/var/tmp/backups,.
 set dir=~/.vim/swap,~/local/tmp,/var/tmp,.
 set tags=./tags;./TAGS;$HOME
+set mouse=a
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
@@ -63,7 +64,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 nnoremap <leader>R :RainbowParenthesesToggle<cr>
-nnoremap <leader>N :NERDTreeToggle<cr>
+"nnoremap <leader>N :NERDTreeToggle<cr>
 nnoremap <leader>B :buffers<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -90,8 +91,8 @@ autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
 " Open NERDTree on startup if no files specified
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-let NERDTreeIgnore=['__pycache__[[dir]]','\.pyc$[[file]]','\.class$[[file]]','\.[oa]$[[file]]','\.orig$']
+"let NERDTreeIgnore=['__pycache__[[dir]]','\.pyc$[[file]]','\.class$[[file]]','\.[oa]$[[file]]','\.orig$']
+"
 let g:vim_markdown_folding_disabled=1
 "let g:solarized_termcolors=256
 let g:airline_powerline_fonts=1
@@ -109,8 +110,8 @@ let g:SexyScroller_DetectPendingKeys = 1
 let g:SexyScroller_EasingStyle = 2
 let g:SexyScroller_CursorTime = 5
 let g:vimtex_latexmk_options = "-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode -latex=xelatex"
-let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-let g:vimtex_view_general_options = '-r @line @pdf @tex'
+"let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+"let g:vimtex_view_general_options = '-r @line @pdf @tex'
 " This adds a callback hook that updates Skim after compilation
 let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
 function! UpdateSkim(status)

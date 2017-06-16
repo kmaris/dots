@@ -26,6 +26,10 @@ _ws() {
   type "$@" 2>&1 >/dev/null
 }
 
+function mkdircd {
+  mkdir $1 && cd $1
+}
+
 
 alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
@@ -58,8 +62,6 @@ export WORKON_HOME="$HOME/.virtualenvs"
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$HOME/local/opt/android-sdk-linux/tools"
-export PATH="$PATH:$HOME/local/opt/android-sdk-linux/platform-tools"
 
 _ws virtualenvwrapper.sh && . $(_wh $_)
 
@@ -87,7 +89,7 @@ fi
 if [ -x "/usr/libexec/java_home" ] ; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
 else
-  export JAVA_HOME="/usr/lib/jvm/java"
+  export JAVA_HOME="/usr/lib/jvm/default"
 fi
 
 unset SSH_ASKPASS
