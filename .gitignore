@@ -1,8 +1,4 @@
-irssi/logs
-irssi/scripts/autorun
-
 vagrant.d/*
-!vagrant.d/Vagrantfile
 
 vim/.netrwhist
 vim/autoload
