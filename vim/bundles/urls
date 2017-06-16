@@ -15,7 +15,6 @@ https://github.com/lervag/vimtex
 https://github.com/mikewest/vimroom
 https://github.com/pearofducks/ansible-vim
 https://github.com/rust-lang/rust.vim
-https://github.com/scrooloose/nerdcommenter
 https://github.com/tomasr/molokai
 https://github.com/tpope/vim-eunuch
 https://github.com/tpope/vim-git
@@ -25,4 +24,5 @@ https://github.com/tpope/vim-speeddating
 https://github.com/tpope/vim-surround
 https://github.com/udalov/kotlin-vim
 https://github.com/vim-scripts/loremipsum
-https://github.com/scrooloose/nerdtree
+https://github.com/arrufat/vala.vim
+https://github.com/tpope/vim-vinegar
