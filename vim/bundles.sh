@@ -5,7 +5,7 @@
 
 VIMDIR="$(dirname $0)"
 BUNDLES_DIR="$VIMDIR/bundles"
-BUNDLE_URLS="$BUNDLES_DIR/urls"
+BUNDLE_URLS="$VIMDIR/bundle_urls"
 
 if [ ! -f "$BUNDLE_URLS" ] ; then
   echo "Missing url file: $BUNDLE_URLS"

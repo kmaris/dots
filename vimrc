@@ -74,7 +74,8 @@ nnoremap <C-l> <C-w>l
 " COLORS@@#@!!!!
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme flattown
+"colorscheme molokai
 
 " Tabbing defaults
 set tabstop=2
@@ -84,7 +85,7 @@ set expandtab
 " Custom tabbing for filetypes
 autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType yaml,yml setlocal nosmartindent noautoindent filetype=ansible
+autocmd FileType yaml,yml setlocal filetype=yaml.ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
 autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
 

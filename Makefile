@@ -26,5 +26,5 @@ $(HOME)/.%: %
 	elif [ -h "$@" ] ; then \
 	  rm "$@" ; \
 	fi
-	ln -s $(CURDIR)/$< $@
+	ln -sf $(CURDIR)/$< $@
 	@[ -x "$<.init" ] && sh "$<.init" || [ -x "$</init.dot" ] && sh "$</init.dot"

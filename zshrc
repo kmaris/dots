@@ -35,4 +35,5 @@ PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
-[ -e "/etc/profile.d/autojump.zsh" ] && source "/etc/profile.d/autojump.zsh"
+[ -e "/etc/profile.d/autojump.zsh" ] && source /etc/profile.d/autojump.zsh
+[ -e "/usr/share/nvm/init-nvm.sh" ] && source /usr/share/nvm/init-nvm.sh

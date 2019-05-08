@@ -29,3 +29,7 @@
   showPatch = true
 [core]
   excludesfile = ~/.gitglobalignore
+[gpg]
+	program = gpg2
+[user]
+	signingKey = kevin@kmaris.net

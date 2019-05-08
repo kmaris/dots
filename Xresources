@@ -1,4 +1,5 @@
-URxvt.scrollBar: false
-URxvt.font: -*-inconsolata-bold-r-*-*-12-*-*-*-*-*-*-*
-URxvt.background: #000000
-URxvt.foreground: #FFFFFF
+Xft.dpi:        192.0
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.hintstyle:  hintslight

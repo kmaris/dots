@@ -29,3 +29,4 @@ fi
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
 [ -e "/etc/profile.d/autojump.bash" ] && source "/etc/profile.d/autojump.bash"
+[ -e "/usr/share/nvm/init-nvm.sh" ] && source '/usr/share/nvm/init-nvm.sh'
