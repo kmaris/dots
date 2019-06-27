@@ -8,9 +8,9 @@ endif
 source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect('bundles/{}')
 
+filetype plugin indent on
 syntax on
 syntax enable
-filetype plugin indent on
 set modeline
 set expandtab
 set encoding=utf-8
