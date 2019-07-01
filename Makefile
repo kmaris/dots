@@ -12,7 +12,7 @@ DOTS := $(addprefix $(HOME)/., $(notdir $(shell find . -mindepth 1 -maxdepth 1 $
 all: $(DOTS)
 
 init:
-	@for init_file in $$(ls *.init) ; do sh $$init_file ; done
+	@for init_file in $$(ls *.init) ; do pushd $$(dirname $$init_file); sh $$init_file ; popd ; done
 	@find . -name init.dot -execdir sh {} \;
 
 install-hook:
@@ -27,4 +27,10 @@ $(HOME)/.%: %
 	  rm "$@" ; \
 	fi
 	ln -sf $(CURDIR)/$< $@
-	@[ -x "$<.init" ] && sh "$<.init" || [ -x "$</init.dot" ] && sh "$</init.dot"
+	@if [ -x "$<.init" ] ; then \
+	  sh "$<.init" ; \
+	elif [ -x "$</init.dot" ] ; then \
+	  pushd $< ; \
+	  sh "$</init.dot" ; \
+	  popd ; \
+	fi

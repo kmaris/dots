@@ -5,9 +5,7 @@ SAVEHIST=1000
 set -o vi
 bindkey -v
 
-setopt extendedglob
-setopt completealiases
-setopt prompt_subst
+setopt extendedglob completealiases prompt_subst appendhistory autocd nomatch notify
 unsetopt beep
 
 autoload -Uz compinit && compinit
