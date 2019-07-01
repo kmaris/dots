@@ -56,6 +56,7 @@ if exists('+undofile')
 endif
 
 let mapleader = ","
+imap jj <Esc>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader><space> :noh<cr>

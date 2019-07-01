@@ -56,7 +56,7 @@ alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
-alias kc='kubectl'
+alias ktl='kubectl'
 
 export GOPATH="$HOME/src/go"
 export EDITOR="$(_wh vim)"
