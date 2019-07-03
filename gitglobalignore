@@ -53,3 +53,5 @@ TAGS
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+vim/{undos,swap,backup}

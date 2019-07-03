@@ -14,6 +14,9 @@ man() {
       man "$@"
 }
 
+# When I hear a song I like I'll jot it down every now and then:
+#   $ slay 'Artist - Title'
+#
 slay() {
   [ "$#" -gt "0" ] && echo "$*" >> $HOME/slays
 }
@@ -56,7 +59,7 @@ alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
-alias ktl='kubectl'
+alias kc='kubectl'
 
 export GOPATH="$HOME/src/go"
 export EDITOR="$(_wh vim)"

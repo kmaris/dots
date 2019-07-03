@@ -1,9 +1,0 @@
-noremap j 3j
-noremap k 3k
-noremap h 3h
-noremap l 3l
-
-set hintchars=hjklasdfgyuiopqwertnmzxcvb
-set titlestring=Firefox
-
-highlight Hint -append font-size:16px;
