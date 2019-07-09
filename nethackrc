@@ -1,4 +1,4 @@
-NAME=kmgogo
+NAME=km
 
 #OPTIONS=gender:male, role:ranger, race:elf, align:chaotic
 OPTIONS=role:Valkyrie, race:dwarf, align:lawful
