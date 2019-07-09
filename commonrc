@@ -39,13 +39,13 @@ alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-
 alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias ..='cd ..'
 if uname | grep -qs Darwin ; then
-  alias ls='ls -hG'
+  alias ls='/bin/ls -hG'
+  alias lz='ls -lZ'
 else
-  alias ls='ls -hG --color=auto'
+  alias ls='ls -hG --color'
 fi
 alias l='ls'
 alias ll='ls -l'
-alias lz='ls -lZ'
 alias la='ls -lA'
 alias tmux='tmux -2u'
 alias tree='tree -C'
@@ -64,12 +64,9 @@ alias kc='kubectl'
 export GOPATH="$HOME/src/go"
 export EDITOR="$(_wh vim)"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/local/lib"
-export WORKON_HOME="$HOME/.virtualenvs"
+export WORKON_HOME="$HOME/virtualenvs"
 
-export PATH="$HOME/local/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-export PATH="/usr/local/sbin:$PATH"
-
+# source virtualenvwrapper.sh if it's on the path
 _ws virtualenvwrapper.sh && . $(_wh $_)
 
 if _ws src-hilite-lesspipe.sh ; then
@@ -100,6 +97,12 @@ else
 fi
 
 unset SSH_ASKPASS
-#export GPG_TTY="$(tty)"
-#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-#gpgconf --launch gpg-agent
+
+if uname | grep -qs Darwin ; then
+  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
+    export PATH="$i:$PATH"
+  done
+  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
+    export MANPATH="$i:$MANPATH"
+  done
+fi

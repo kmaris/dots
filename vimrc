@@ -75,8 +75,8 @@ nnoremap <C-l> <C-w>l
 " COLORS@@#@!!!!
 set t_Co=256
 set background=dark
-colorscheme flattown
-"colorscheme molokai
+"colorscheme flattown
+colorscheme molokai
 
 " Tabbing defaults
 set tabstop=2
