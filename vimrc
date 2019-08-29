@@ -11,6 +11,7 @@ execute pathogen#infect('bundles/{}')
 filetype plugin indent on
 syntax on
 syntax enable
+set updatetime=200
 set modeline
 set expandtab
 set encoding=utf-8
@@ -54,6 +55,9 @@ if exists('+undofile')
   set undofile
   set undodir=$HOME/.vim/undo,/tmp/undos,/var/tmp/undos,.
 endif
+set guifont=Inconsolata-dz\ for\ Powerline:h12
+" Remove annoying scrollbars in macvim
+set guioptions=
 
 let mapleader = ","
 imap jj <Esc>

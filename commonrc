@@ -61,48 +61,12 @@ alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
 alias kc='kubectl'
 
-export GOPATH="$HOME/src/go"
-export EDITOR="$(_wh vim)"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/local/lib"
-export WORKON_HOME="$HOME/virtualenvs"
-
-# source virtualenvwrapper.sh if it's on the path
-_ws virtualenvwrapper.sh && . $(_wh $_)
-
-if _ws src-hilite-lesspipe.sh ; then
-  export LESSOPEN="| $(_wh src-hilite-lesspipe.sh) %s"
-  export LESS=' -R '
-fi
-
-if _ws mvn ; then
-  export M3_HOME=/opt/apache-maven
-  export M2_HOME=$M3_HOME
-  export M3=$M3_HOME/bin
-  export M2=$M3
-fi
-
-if _ws brew ; then
-  BPFX="$(brew --prefix)"
-  [[ -e ${BPFX}/etc/profile.d/autojump.sh ]] && . ${BPFX}/etc/profile.d/autojump.sh
-  export GOROOT="${BPFX}/opt/go/libexec"
-  export GROOVY_HOME="${BPFX}/opt/groovy/libexec"
-else
-  export GOROOT="/usr/lib/go"
-fi
-
-if [ -x "/usr/libexec/java_home" ] ; then
-  export JAVA_HOME="$(/usr/libexec/java_home)"
-else
-  export JAVA_HOME="/usr/lib/jvm/default"
-fi
-
-unset SSH_ASKPASS
-
-if uname | grep -qs Darwin ; then
-  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
-    export PATH="$i:$PATH"
-  done
-  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
-    export MANPATH="$i:$MANPATH"
-  done
-fi
+#if uname | grep -qs Darwin ; then
+#  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
+#    export PATH="$i:$PATH"
+#  done
+#  export MANPATH="$MANPATH:/usr/local/etc/bash_completion.d"
+#  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
+#    export MANPATH="$i:$MANPATH"
+#  done
+#fi

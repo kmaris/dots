@@ -1,3 +1,15 @@
+###### Start timing
+#zmodload zsh/datetime
+#setopt PROMPT_SUBST
+#PS4='+$EPOCHREALTIME %N:%i> '
+#
+#logfile=$(mktemp zsh_profile.XXXXXXXX)
+#echo "Logging to $logfile"
+#exec 3>&2 2>$logfile
+#
+#setopt XTRACE
+###### End timing
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -5,10 +17,15 @@ SAVEHIST=1000
 set -o vi
 bindkey -v
 
-setopt extendedglob completealiases prompt_subst appendhistory autocd nomatch notify
+setopt extendedglob completealiases prompt_subst appendhistory auto_cd nomatch notify
 unsetopt beep
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 
@@ -18,7 +35,6 @@ zstyle ':vcs_info:*' enable svn git
 zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
 zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]):*' branchformat '%b%F{1}:%F{3}%r'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  
 
 # Use precmd to do vcs_info, notifications, etc.
 precmd() {
@@ -34,5 +50,7 @@ PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
-[ -e "/etc/profile.d/autojump.zsh" ] && source /etc/profile.d/autojump.zsh
-[ -e "/usr/share/nvm/init-nvm.sh" ] && source /usr/share/nvm/init-nvm.sh
+
+# Unstart timinmg
+#unsetopt XTRACE
+#exec 2>&3 3>&-

@@ -55,3 +55,8 @@ ehthumbs.db
 Thumbs.db
 
 vim/{undos,swap,backup}
+
+# Editors #
+###########
+*.code-workspace
+.vscode

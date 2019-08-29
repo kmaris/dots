@@ -2,6 +2,7 @@
 
 ## Manage vim bundles. Specify with the -s option to regenerate $BUNDLE_URLS
 ## with the repositories that are either present or unaccounted for.
+## Delete and re-clone all repo's in $BUNDLES_DIR with -c
 
 VIMDIR="$(dirname $0)"
 BUNDLES_DIR="$VIMDIR/bundles"

@@ -6,6 +6,8 @@
   co = checkout
   st = status
   ci = commit
+  ca = commit -a
+  cam = commit -a -m
   lol = log --notes --graph --oneline
   remotes = remote -v show
   last = log -1 HEAD -p
@@ -28,6 +30,14 @@
 [stash]
   showPatch = true
 [core]
-  excludesfile = ~/.gitglobalignore
+	excludesfile = /Users/kmaris/.gitglobalignore
 [gpg]
 	program = gpg2
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff "sopsdiffer"]
+	textconv = sops -d
