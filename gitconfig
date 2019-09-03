@@ -30,14 +30,8 @@
 [stash]
   showPatch = true
 [core]
-	excludesfile = /Users/kmaris/.gitglobalignore
+  excludesfile = ~/.gitglobalignore
 [gpg]
-	program = gpg2
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  program = gpg2
 [diff "sopsdiffer"]
-	textconv = sops -d
+  textconv = sops -d

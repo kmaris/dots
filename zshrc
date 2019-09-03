@@ -21,11 +21,7 @@ setopt extendedglob completealiases prompt_subst appendhistory auto_cd nomatch n
 unsetopt beep
 
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
+compinit -C
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 
