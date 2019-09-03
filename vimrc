@@ -60,7 +60,7 @@ set guifont=Inconsolata-dz\ for\ Powerline:h12
 set guioptions=
 
 let mapleader = ","
-imap jj <Esc>
+imap jk <Esc>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader><space> :noh<cr>
