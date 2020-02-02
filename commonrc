@@ -42,7 +42,7 @@ if uname | grep -qs Darwin ; then
   alias ls='/bin/ls -hG'
   alias lz='ls -lZ'
 else
-  alias ls='ls -hG --color'
+  alias ls='ls -h --color'
 fi
 alias l='ls'
 alias ll='ls -l'
