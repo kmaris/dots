@@ -8,11 +8,11 @@ export PATH="$HOME/local/bin:/usr/local/sbin:$GOPATH/bin:$PATH"
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
-. /usr/share/autojump/autojump.sh
+. /usr/local/etc/autojump.sh
 export JAVA_HOME="/usr/lib/jvm/default-java"
 
 unset SSH_ASKPASS
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s` >/dev/null
 fi
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source <(/usr/local/bin/pyenv-sh-virtualenvwrapper)

@@ -60,8 +60,10 @@ alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
 alias kc='kubectl'
+alias dm='docker-machine'
 
-#if uname | grep -qs Darwin ; then
+if uname | grep -qs Darwin ; then
+  export PATH="$HOME/.cargo/bin:$PATH"
 #  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
 #    export PATH="$i:$PATH"
 #  done
@@ -69,4 +71,4 @@ alias kc='kubectl'
 #  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
 #    export MANPATH="$i:$MANPATH"
 #  done
-#fi
+fi
