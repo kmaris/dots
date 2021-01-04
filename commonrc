@@ -34,7 +34,7 @@ function mkdircd {
 }
 
 
-alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias grep='grep --color=auto --exclude-dir=.terragrunt-cache --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias ..='cd ..'
@@ -42,7 +42,7 @@ if uname | grep -qs Darwin ; then
   alias ls='/bin/ls -hG'
   alias lz='ls -lZ'
 else
-  alias ls='ls -hG --color'
+  alias ls='ls -h --color'
 fi
 alias l='ls'
 alias ll='ls -l'
@@ -58,9 +58,18 @@ alias ln='ln -i'
 alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
-alias kc='kubectl'
+alias xmm="xmodmap ${HOME}/.Xmodmap"
+alias k='kubectl'
+alias kx='kubectx'
+alias kxc='kubectx --current'
+alias tg='terragrunt'
+alias tf='terraform'
+alias kn='kubens'
+alias knc='kubens --current'
+alias dm='docker-machine'
 
-#if uname | grep -qs Darwin ; then
+if uname | grep -qs Darwin ; then
+  export PATH="$HOME/.cargo/bin:$PATH"
 #  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
 #    export PATH="$i:$PATH"
 #  done
@@ -68,4 +77,4 @@ alias kc='kubectl'
 #  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
 #    export MANPATH="$i:$MANPATH"
 #  done
-#fi
+fi

@@ -7,17 +7,22 @@ SHELL := /bin/bash
 
 FIND_EXCLUDES := \! \( -name Makefile -or -name README.md -or -name .\* -or -name \*.init \)
 DOTS := $(addprefix $(HOME)/., $(notdir $(shell find . -mindepth 1 -maxdepth 1 $(FIND_EXCLUDES))))
+INITS := $(shell find . -mindepth 2 -maxdepth 2 -name init.sh)
 
 .PHONY: all init install-hook
-all: $(DOTS)
+all: $(DOTS) $(INITS)
 
-init:
+$(INITS): 
 	@for init_file in $$(ls *.init) ; do pushd $$(dirname $$init_file); sh $$init_file ; popd ; done
-	@find . -name init.dot -execdir sh {} \;
+	@find . -name init.sh -execdir sh {} \;
 
 install-hook:
 	echo -e "#!/bin/bash\nmake"  > .git/hooks/post-merge
 	chmod +x .git/hooks/post-merge
+
+%/init.dot:
+	cd $$(dirname "$@")
+	echo $@
 
 $(HOME)/.%: %
 	@if [ -f "$@" ] || [ -d "$@" ] ; then \
