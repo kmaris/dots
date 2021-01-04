@@ -7,3 +7,4 @@ vim/bundles/*
 !vim/bundles/urls
 vim/swap
 vim/undo
+tmux/plugins

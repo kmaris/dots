@@ -34,7 +34,7 @@ function mkdircd {
 }
 
 
-alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias grep='grep --color=auto --exclude-dir=.terragrunt-cache --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias ..='cd ..'
@@ -59,7 +59,13 @@ alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
-alias kc='kubectl'
+alias k='kubectl'
+alias kx='kubectx'
+alias kxc='kubectx --current'
+alias tg='terragrunt'
+alias tf='terraform'
+alias kn='kubens'
+alias knc='kubens --current'
 alias dm='docker-machine'
 
 if uname | grep -qs Darwin ; then

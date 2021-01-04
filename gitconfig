@@ -31,6 +31,14 @@
   showPatch = true
 [core]
   excludesfile = ~/.gitglobalignore
+	pager = less -+F -+X
+[pager]
+  log = diffr | less -+F -+X
+  show = diffr | less -+F -+X
+  diff = diffr | less -+F -+X
+  #log = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
+  #show = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
+  #diff = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
 [gpg]
   program = gpg2
 [difftool "sourcetree"]
@@ -53,3 +61,6 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[user]
+	email = kevin.maris@chess.com
+	name = Kevin Maris

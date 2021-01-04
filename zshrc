@@ -17,8 +17,8 @@ SAVEHIST=1000
 set -o vi
 bindkey -v
 
-setopt extendedglob completealiases prompt_subst appendhistory auto_cd nomatch notify
-unsetopt beep
+setopt extendedglob completealiases prompt_subst appendhistory nomatch notify
+unsetopt beep auto_cd
 
 autoload -Uz compinit
 compinit -C
@@ -36,6 +36,8 @@ zstyle ':vcs_info:(sv[nk]):*' branchformat '%b%F{1}:%F{3}%r'
 precmd() {
   vcs_info
 }
+
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 if [[ $UID -eq 0 ]]; then # root
     eval PR_USER='%{$fg[red]%}%n@%m'
