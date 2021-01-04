@@ -46,6 +46,7 @@ PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
+source /usr/share/autojump/autojump.zsh
 
 # Unstart timinmg
 #unsetopt XTRACE

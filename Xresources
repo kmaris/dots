@@ -1,5 +1,4 @@
-Xft.dpi:        192.0
-Xft.antialias:  true
-Xft.hinting:    true
+Xft.antialias:  1
+Xft.hinting:    0
 Xft.rgba:       rgb
-Xft.hintstyle:  hintslight
+Xft.hintstyle:  hintnone

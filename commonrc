@@ -58,7 +58,6 @@ alias ln='ln -i'
 alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
-alias xmm="xmodmap ${HOME}/.Xmodmap"
 alias kc='kubectl'
 
 #if uname | grep -qs Darwin ; then
