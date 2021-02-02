@@ -16,4 +16,3 @@ unset SSH_ASKPASS
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s` >/dev/null
 fi
-source <(/usr/bin/virtualenvwrapper.sh)

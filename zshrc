@@ -17,7 +17,7 @@ SAVEHIST=1000
 set -o vi
 bindkey -v
 
-setopt extendedglob completealiases prompt_subst appendhistory nomatch notify
+setopt extendedglob prompt_subst appendhistory nomatch notify
 unsetopt beep auto_cd
 
 autoload -Uz compinit
@@ -49,6 +49,7 @@ PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
 source /usr/share/autojump/autojump.zsh
+source <(/usr/bin/virtualenvwrapper.sh)
 
 # Unstart timinmg
 #unsetopt XTRACE
