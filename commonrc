@@ -67,6 +67,8 @@ alias tf='terraform'
 alias kn='kubens'
 alias knc='kubens --current'
 alias dm='docker-machine'
+alias vim='gvim -v'
+alias vi='gvim -v'
 
 if uname | grep -qs Darwin ; then
   export PATH="$HOME/.cargo/bin:$PATH"
