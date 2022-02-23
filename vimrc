@@ -5,8 +5,42 @@ if isdirectory("/Library/TeX/texbin")
   let $PATH=$PATH.":/Library/TeX/texbin"
 endif
 
-source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundles/{}')
+"" PATHOGEN
+"source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect('bundles/{}')
+
+"" VUNDLE
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Vunvle must be first
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'cespare/vim-toml'
+Plugin 'croaker/mustang-vim'
+Plugin 'jnurmine/Zenburn'
+Plugin 'joeytwiddle/sexy_scroller.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'blerins/flattown'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'hashivim/vim-terraform'
+
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-glaive'
+Plugin 'google/vim-codefmt'
+Plugin 'bazelbuild/vim-bazel'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
@@ -89,7 +123,7 @@ set softtabstop=2
 set expandtab
 " Custom tabbing for filetypes
 autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+"autocmd FileType python,py,wsgi setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml,yml setlocal filetype=yaml.ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
 autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
