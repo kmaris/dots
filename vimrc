@@ -47,7 +47,7 @@ set backup
 set backupdir=$HOME/.vim/backup,/tmp/backups,/var/tmp/backups,.
 set dir=~/.vim/swap,~/local/tmp,/var/tmp,.
 set tags=./tags;./TAGS;$HOME
-set mouse=a
+set mouse=
 if exists('+colorcolumn')
   set colorcolumn=80
 endif

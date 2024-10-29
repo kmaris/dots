@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ###### Start timing
 #zmodload zsh/datetime
 #setopt PROMPT_SUBST
@@ -20,29 +27,10 @@ bindkey -v
 setopt extendedglob completealiases prompt_subst appendhistory auto_cd nomatch notify
 unsetopt beep
 
-autoload -Uz compinit
-compinit -C
+fpath+=~/.zfunc
+
+autoload -Uz compinit && compinit -i
 autoload -Uz colors && colors
-autoload -Uz vcs_info
-
-# For source controls prompt info
-zstyle ':compinstall' filename $HOME/.zshrc
-zstyle ':vcs_info:*' enable svn git
-zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]):*' branchformat '%b%F{1}:%F{3}%r'
-
-# Use precmd to do vcs_info, notifications, etc.
-precmd() {
-  vcs_info
-}
-
-if [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='%{$fg[red]%}%n@%m'
-else
-    eval PR_USER='%{$fg[green]%}%n@%m'
-fi
-PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
 [ -e "$HOME/.localrc" ] && source "$HOME/.localrc"
@@ -50,3 +38,7 @@ PS1='$PR_USER %{$fg[yellow]%}%~%{$reset_color%} ${vcs_info_msg_0_}> '
 # Unstart timinmg
 #unsetopt XTRACE
 #exec 2>&3 3>&-
+source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

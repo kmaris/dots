@@ -1,6 +1,6 @@
 # vim: set ft=sh:
 
-stty -ixon # Pain in the ass flow control for terminal emulators.
+#stty -ixon # Pain in the ass flow control for terminal emulators.
 
 man() {
   env \
@@ -34,11 +34,12 @@ function mkdircd {
 }
 
 
-alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
-alias fgrep='fgrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
-alias egrep='egrep --color=auto --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias grep='grep --color=auto --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias fgrep='fgrep --color=auto --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
+alias egrep='egrep --color=auto --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.repo --exclude-dir=.hg'
 alias ..='cd ..'
 if uname | grep -qs Darwin ; then
+  export PATH="$HOME/.cargo/bin:$PATH"
   alias ls='/bin/ls -hG'
   alias lz='ls -lZ'
 else
@@ -59,16 +60,9 @@ alias adoc='ansible-doc'
 alias vbm='VBoxManage'
 alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
-alias kc='kubectl'
-alias dm='docker-machine'
+alias k='kubectl'
+alias kx='kubectx'
+alias kn='kubens'
+alias p='podman'
+alias pm='podman-machine'
 
-if uname | grep -qs Darwin ; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-#  for i in /usr/local/Cellar/*/*/libexec/gnubin ; do
-#    export PATH="$i:$PATH"
-#  done
-#  export MANPATH="$MANPATH:/usr/local/etc/bash_completion.d"
-#  for i in /usr/local/Cellar/*/*/libexec/gnuman ; do
-#    export MANPATH="$i:$MANPATH"
-#  done
-fi
