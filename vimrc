@@ -5,8 +5,23 @@ if isdirectory("/Library/TeX/texbin")
   let $PATH=$PATH.":/Library/TeX/texbin"
 endif
 
-source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundles/{}')
+"source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect('bundles/{}')
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'bling/airline'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-surround'
+Plugin 'blerins/flattown'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'chrostoomey/vim-tmux-navigator'
+Plugin 'rhysd/vim-crystal'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
