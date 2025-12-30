@@ -1,13 +1,8 @@
-set nocompatible
 filetype off
 
 if isdirectory("/Library/TeX/texbin")
   let $PATH=$PATH.":/Library/TeX/texbin"
 endif
-
-"" PATHOGEN
-"source ~/.vim/bundles/vim-pathogen/autoload/pathogen.vim
-"execute pathogen#infect('bundles/{}')
 
 "" VUNDLE
 "set the runtime path to include Vundle and initialize
@@ -18,27 +13,33 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'cespare/vim-toml'
 Plugin 'croaker/mustang-vim'
 Plugin 'jnurmine/Zenburn'
 Plugin 'joeytwiddle/sexy_scroller.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'pearofducks/ansible-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-fugitive'
 Plugin 'blerins/flattown'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'hashivim/vim-terraform'
-
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-glaive'
 Plugin 'google/vim-codefmt'
 Plugin 'bazelbuild/vim-bazel'
+Plugin 'vinitkumar/monokai-pro-vim'
+" plugins that can't run in restricted vim should go in the try block.
+try
+  Plugin 'mhinz/vim-signify'
+catch /E145/
+  " do something here? I don't care if signify fails silently
+endtry
 
 call vundle#end()
 
@@ -81,6 +82,7 @@ set backup
 set backupdir=$HOME/.vim/backup,/tmp/backups,/var/tmp/backups,.
 set dir=~/.vim/swap,~/local/tmp,/var/tmp,.
 set tags=./tags;./TAGS;$HOME
+set ttymouse=xterm2
 set mouse=a
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -89,7 +91,7 @@ if exists('+undofile')
   set undofile
   set undodir=$HOME/.vim/undo,/tmp/undos,/var/tmp/undos,.
 endif
-set guifont=Inconsolata-dz\ for\ Powerline:h12
+set guifont=Inconsolata-dz\ for\ Powerline:h16
 " Remove annoying scrollbars in macvim
 set guioptions=
 
@@ -110,12 +112,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" COLORS@@#@!!!!
-set t_Co=256
-set background=dark
-"colorscheme flattown
-colorscheme molokai
-
 " Tabbing defaults
 set tabstop=2
 set shiftwidth=2
@@ -127,6 +123,23 @@ autocmd FileType make,Makefile,mk setlocal tabstop=8 softtabstop=8 shiftwidth=8 
 autocmd FileType yaml,yml setlocal filetype=yaml.ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
 autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
+
+"colorscheme molokai
+let g:airline_theme = 'molokai'
+function! SetMacOSColorScheme()
+  " Use AppleScript to query macOS appearance
+  try
+    let l:darkmode = system("osascript -e 'tell app \"System Events\" to tell appearance preferences to get dark mode'")
+    if l:darkmode =~? 'true'
+      colorscheme molokai " Replace with your preferred dark theme
+    else
+      colorscheme shine " Replace with your preferred light theme
+    endif
+  catch /E145/
+    " restricted mode, don't worry about it
+  endtry
+endfunction
+autocmd VimEnter * call SetMacOSColorScheme()
 
 " Open NERDTree on startup if no files specified
 "autocmd vimenter * if !argc() | NERDTree | endif
@@ -172,8 +185,10 @@ function! UpdateSkim(status)
   endif
 endfunction
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,ansible_collections
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|a|o)$',
   \ }
+let g:ctrlp_working_path_mode = ''
+"let g:ctrlp_working_path_mode = 'ra' " default
