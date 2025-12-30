@@ -28,10 +28,10 @@ bindkey -v
 setopt extendedglob prompt_subst incappendhistory nomatch notify share_history
 unsetopt beep auto_cd
 
-autoload -Uz compinit
-compinit -C
-autoload -Uz colors && colors
+fpath+=~/.zfunc
 
+autoload -Uz compinit && compinit -i
+autoload -Uz colors && colors
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 [ -e "$HOME/.commonrc" ] && source "$HOME/.commonrc"
@@ -51,6 +51,7 @@ source /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/powerlevel1
 # Unstart timinmg
 #unsetopt XTRACE
 #exec 2>&3 3>&-
+source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

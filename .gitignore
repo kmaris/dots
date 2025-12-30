@@ -3,7 +3,8 @@ vagrant.d/*
 vim/.netrwhist
 vim/autoload
 vim/backup
-vim/bundle
+vim/bundle/*
+!vim/bundle/.gitkeep
 vim/swap
 vim/undo
 tmux/plugins
