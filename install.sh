@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # vi: ft=python
 
 import os
@@ -6,16 +6,14 @@ import subprocess
 
 from pathlib import Path
 
-IGNORES = ["install.sh", "README.md", ".git", ".gitattributes", ".gitignore"]
+IGNORED = ["install.sh", "README.md", ".git", ".gitattributes", ".gitignore"]
 
 def link_files(src, dest):
     # src: the dots directory
     # dest: the directory where links should be made, typically $HOME
     src_files = []
     src_dirs = []
-    for entry in src.iterdir():
-        if entry.name in IGNORES:
-            continue
+    for entry in [e for e in src.iterdir() if e not in IGNORED]:
         if entry.is_file():
             src_files.append(entry)
         else:
