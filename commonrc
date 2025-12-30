@@ -1,7 +1,5 @@
 # vim: set ft=sh:
 
-stty -ixon # Pain in the ass flow control for terminal emulators.
-
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -48,6 +46,9 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -lA'
 alias tmux='tmux -2u'
+alias tat="tmux attach -t"
+alias tls='tmux ls'
+alias tnew="tmux new -s"
 alias tree='tree -C'
 alias ping='ping -c 5'
 alias df='df -h'
@@ -57,18 +58,17 @@ alias irc='weechat'
 alias ln='ln -i'
 alias adoc='ansible-doc'
 alias vbm='VBoxManage'
-alias tatt="tmux attach -t"
 alias xmm="xmodmap ${HOME}/.Xmodmap"
 alias k='kubectl'
 alias kx='kubectx'
 alias kxc='kubectx --current'
 alias tg='terragrunt'
-alias tf='terraform'
+alias tf='tofu'
 alias kn='kubens'
 alias knc='kubens --current'
-alias dm='docker-machine'
-alias vim='gvim -v'
-alias vi='gvim -v'
+alias dm='podman-machine'
+#alias vim='gvim -v'
+#alias vi='gvim -v'
 
 if uname | grep -qs Darwin ; then
   export PATH="$HOME/.cargo/bin:$PATH"
