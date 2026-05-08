@@ -46,12 +46,12 @@ if type rg &> /dev/null ; then
 fi
 source <(fzf --zsh)
 
-source /opt/homebrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/powerlevel10k.zsh-theme
+eval "$(zoxide init zsh)"
 
 # Unstart timinmg
 #unsetopt XTRACE
 #exec 2>&3 3>&-
-source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

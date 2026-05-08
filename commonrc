@@ -72,4 +72,4 @@ alias knc='kubens --current'
 alias dm='podman-machine'
 alias p='podman'
 alias pm='podman-machine'
-
+alias n='nvim'

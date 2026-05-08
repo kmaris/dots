@@ -1,3 +1,4 @@
+set nocompatible
 filetype off
 
 if isdirectory("/Library/TeX/texbin")
@@ -34,6 +35,7 @@ Plugin 'google/vim-glaive'
 Plugin 'google/vim-codefmt'
 Plugin 'bazelbuild/vim-bazel'
 Plugin 'vinitkumar/monokai-pro-vim'
+Plugin 'valloric/youcompleteme'
 " plugins that can't run in restricted vim should go in the try block.
 try
   Plugin 'mhinz/vim-signify'
@@ -95,7 +97,7 @@ set guifont=Inconsolata-dz\ for\ Powerline:h16
 " Remove annoying scrollbars in macvim
 set guioptions=
 
-let mapleader = ","
+let mapleader = " "
 imap jk <Esc>
 nnoremap / /\v
 vnoremap / /\v
@@ -124,22 +126,23 @@ autocmd FileType yaml,yml setlocal filetype=yaml.ansible
 autocmd BufNewFile,BufRead SCons* set filetype=python
 autocmd BufNewFile,BufRead Jenkinsfile,*.dsl set filetype=groovy
 
-"colorscheme molokai
-let g:airline_theme = 'molokai'
-function! SetMacOSColorScheme()
-  " Use AppleScript to query macOS appearance
-  try
-    let l:darkmode = system("osascript -e 'tell app \"System Events\" to tell appearance preferences to get dark mode'")
-    if l:darkmode =~? 'true'
-      colorscheme molokai " Replace with your preferred dark theme
-    else
-      colorscheme shine " Replace with your preferred light theme
-    endif
-  catch /E145/
-    " restricted mode, don't worry about it
-  endtry
-endfunction
-autocmd VimEnter * call SetMacOSColorScheme()
+set background=light
+colorscheme shine
+"let g:airline_theme = 'molokai'
+"function! SetMacOSColorScheme()
+"  " Use AppleScript to query macOS appearance
+"  try
+"    let l:darkmode = system("osascript -e 'tell app \"System Events\" to tell appearance preferences to get dark mode'")
+"    if l:darkmode =~? 'true'
+"      colorscheme molokai " Replace with your preferred dark theme
+"    else
+"      colorscheme shine " Replace with your preferred light theme
+"    endif
+"  catch /E145/
+"    " restricted mode, don't worry about it
+"  endtry
+"endfunction
+"autocmd VimEnter * call SetMacOSColorScheme()
 
 " Open NERDTree on startup if no files specified
 "autocmd vimenter * if !argc() | NERDTree | endif
@@ -177,7 +180,7 @@ function! UpdateSkim(status)
     call extend(l:cmd, ['-g'])
   endif
   if has('nvim')
-    call jobstart(l:cmd + [line('.'), l:out, l:tex])
+    call job_start(l:cmd + [line('.'), l:out, l:tex])
   elseif has('job')
     call job_start(l:cmd + [line('.'), l:out, l:tex])
   else

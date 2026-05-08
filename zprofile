@@ -17,5 +17,3 @@ export JAVA_HOME="/usr/lib/jvm/default-java"
   #eval `ssh-agent -s` >/dev/null
   #ssh-add
 #fi
-[ -f '/usr/local/bin/pyenv-sh-virtualenvwrapper' ] && \
-  source <(/usr/local/bin/pyenv-sh-virtualenvwrapper)
