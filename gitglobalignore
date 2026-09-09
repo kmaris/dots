@@ -60,3 +60,5 @@ vim/{undos,swap,backup}
 ###########
 *.code-workspace
 .vscode
+
+**/.claude/settings.local.json

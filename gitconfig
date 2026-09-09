@@ -41,8 +41,6 @@
   #log = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
   #show = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
   #diff = /usr/share/git-core/contrib/diff-highlight | less -+F -+X
-[gpg]
-  program = gpg2
 [diff "sopsdiffer"]
   textconv = sops -d
 [color "diff"]

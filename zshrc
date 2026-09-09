@@ -1,3 +1,5 @@
+export GPG_TTY=$TTY
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -29,6 +31,7 @@ setopt extendedglob prompt_subst incappendhistory nomatch notify share_history
 unsetopt beep auto_cd
 
 fpath+=~/.zfunc
+fpath+=~/.docker/completions
 
 autoload -Uz compinit && compinit -i
 autoload -Uz colors && colors
@@ -51,7 +54,3 @@ eval "$(zoxide init zsh)"
 # Unstart timinmg
 #unsetopt XTRACE
 #exec 2>&3 3>&-
-[[ -f /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
