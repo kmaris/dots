@@ -14,6 +14,11 @@ root = "nvim"
 target = "~/.config/nvim"
 mode = "symlink"
 
+[dotfile_groups.mise]
+root = "mise"
+target = "~/.config/mise"
+mode = "symlink"
+
 [dotfile_groups.zsh]
 root = "zsh"
 dot_prefix = true
@@ -23,6 +28,7 @@ mode = "symlink-each"
 root = "doom"
 target = "~/.doom.d"
 mode = "symlink"
+exclude = ["local.el.example"]
 
 [dotfile_groups.zsh.entries]
 "~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }

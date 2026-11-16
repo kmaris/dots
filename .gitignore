@@ -1,2 +1,4 @@
 # per-machine overrides
 doom/local.el
+
+miserc.local.toml

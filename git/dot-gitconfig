@@ -19,6 +19,7 @@
   supdate = submodule update --remote --merge
   st = status
   type = cat-file -t
+  w = worktree
 [push]
   default = simple
 [filter "lfs"]
