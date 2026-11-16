@@ -1,0 +1,3 @@
+;;; local.el -*- lexical-binding: t; -*-
+
+(setq user-mail-address "kevinexample@examplework.com")
