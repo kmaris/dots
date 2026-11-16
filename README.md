@@ -1,9 +1,11 @@
-DOTFILES
-========
+# dots
 
-Install them with `./install.sh`.
+My personal dotfiles managed with [mise](https://mise.jdx.dev).
 
-inits for dots
--------
+## Setup
 
-`cd <dotdirectory> && sh <dotdirectory>/init.dot` will be run for directories.
+Install `mise` and then bootstrap everything:
+
+```sh
+mise bootstrap
+```

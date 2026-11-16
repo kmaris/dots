@@ -1,0 +1,38 @@
+# Per workstation config, careful checking this one in...
+[user]
+  name = User Name
+  email = user.email@example.com
+  signingkey = ~/.ssh/id_ed25519.pub
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
+[gpg]
+  format = ssh
+
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only --wrap-max-lines 0
+[delta]
+    #side-by-side = true
+    line-numbers = true
+    navigate = true  # use n and N to move between diff sections
+    light = true
+    wrap-max-lines = 0 # disable wrapping
+[merge]
+    conflictStyle = zdiff3
+
+# GUI diff/merge tool settings
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    # Choose one of these two lines (not both!) explained below.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"

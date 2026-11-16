@@ -1,0 +1,26 @@
+shell-integration = zsh
+shell-integration-features = ssh-terminfo,ssh-env,no-cursor
+cursor-style = block
+cursor-style-blink = false
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
+split-divider-color = 313244
+font-family = JetBrainsMono Nerd Font
+mouse-reporting = true
+# focus-follows-mouse = true
+copy-on-select = false
+
+#keybind = ctrl+h=goto_split:left
+#keybind = ctrl+j=goto_split:bottom
+#keybind = ctrl+k=goto_split:top
+#keybind = ctrl+l=goto_split:right
+#keybind = ctrl+Space>h=new_split:left
+#keybind = ctrl+Space>j=new_split:down
+#keybind = ctrl+Space>k=new_split:up
+#keybind = ctrl+Space>l=new_split:right
+#keybind = ctrl+Space>f=toggle_split_zoom
+#
+#keybind = ctrl+n=new_window
+#keybind = ctrl+Space>t=new_tab
+#keybind = ctrl+Space>n=next_tab
+#keybind = ctrl+Space>p=previous_tab
+#window-save-state = always

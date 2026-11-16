@@ -1,0 +1,15 @@
+[tools]
+black = "latest"
+lazydocker = "latest"
+lazygit = "latest"
+node = "latest"
+npm = "latest"
+prettier = "latest"
+ruby = "latest"
+rust = "latest"
+sops = "latest"
+terragrunt = "latest"
+tree-sitter = "latest"
+uv = "latest"
+vault = "latest"
+

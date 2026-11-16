@@ -1,0 +1,39 @@
+### Put local configurations for user.{name,email,signingkey}, excludesfile,
+### and credentials.helper into ~/.gitconfig.local
+[color]
+  ui = true
+[alias]
+  br = branch
+  branches = branch -a
+  co = checkout
+  ci = commit
+  ca = commit -a
+  cam = commit -a -m
+  dump = cat-file -p
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lol = log --notes --graph --oneline
+  last = log -1 HEAD -p
+  remotes = remote -v show
+  sdiff = !git diff && git submodule foreach 'git diff'
+  spush = push --recurse-submodules=on-demand
+  supdate = submodule update --remote --merge
+  st = status
+  type = cat-file -t
+[push]
+  default = simple
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[include]
+  path = ~/.gitconfig.local
+[stash]
+  showPatch = true
+  showIncludeUntracked = true
+[core]
+  excludesfile = ~/.gitglobalignore
+[init]
+	defaultBranch = main
+[pull]
+	ff = only

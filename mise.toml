@@ -1,0 +1,62 @@
+[dotfile_groups.home]
+root = "home"          # ~/.dotfiles/home
+target = "~"
+mode = "symlink-each"
+dot_prefix = true
+
+[dotfile_groups.ghostty]
+root = "ghostty"
+target = "~/.config/ghostty"
+mode = "symlink"
+
+[dotfile_groups.nvim]
+root = "nvim"
+target = "~/.config/nvim"
+mode = "symlink"
+
+[dotfile_groups.zsh]
+root = "zsh"
+dot_prefix = true
+mode = "symlink-each"
+
+[dotfile_groups."doom"]
+root = "doom"
+target = "~/.doom.d"
+mode = "symlink"
+
+[dotfile_groups.zsh.entries]
+"~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
+
+[dotfile_groups.git]
+root = "git"
+dot_prefix = true
+mode = "symlink-each"
+exclude = ["gitconfig.local.example"]
+
+[history.reload]
+"~/.vimrc" = "mise run after-vimrc"
+
+[tasks.after-vimrc]
+description = "run post vimrc actions"
+run = '''
+  # Install vuncle for plugins
+  if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  fi
+'''
+
+[bootstrap.mise_shell_activate]
+zprofile = "shims"
+
+# Packages that I want to work if for some reason PATH gets messed
+# up and mise bin dirs aren't available
+[bootstrap.packages]
+"zsh" = "latest"
+"tmux" = "latest"
+"ghostty" = "latest"
+"fzf" = "latest"
+"ripgrep" = "latest"
+"zoxide" = "latest"
+"bat" = "latest"
+"fd" = { names = { apt = "fd-find" } }
+"delta" = { names = { apt = "git-delta" } }
