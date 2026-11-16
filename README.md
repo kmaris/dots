@@ -8,4 +8,5 @@ Install `mise` and then bootstrap everything:
 
 ```sh
 mise bootstrap
+mise dot apply
 ```
