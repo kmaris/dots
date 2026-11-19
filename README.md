@@ -16,4 +16,6 @@ Install `mise` and then bootstrap everything:
 cd ~/.dotfiles
 mise bootstrap
 mise dot apply
+cd ~
+mise install
 ```

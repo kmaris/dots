@@ -1,5 +1,5 @@
 [dotfile_groups.home]
-root = "home"          # ~/.dotfiles/home
+root = "home"         # ~/.dotfiles/home
 target = "~"
 mode = "symlink-each"
 dot_prefix = true

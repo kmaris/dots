@@ -8,7 +8,11 @@ disabled = true
 disabled = true
 
 [aws]
+disabled = true
 symbol = "  "
+
+[gcloud]
+disabled = true
 
 [buf]
 symbol = " "
